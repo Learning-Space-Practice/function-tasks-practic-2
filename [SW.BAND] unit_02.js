@@ -1,7 +1,7 @@
 // Task 1
-// Напишите функцию t1, которая принимает два аргумента и выводит в .out-1 случайное
-//  целое число от первого аргумента(включительно) до второго(включительно).
-//   Функция запускается по кнопке .b-1. Обратите внимание на запуск функции.
+// Напишите функцию t1, которая принимает два аргумента и выводитительно).
+//   Функция запускается по кнопке . в .out-1 случайное
+//  целое число от первого аргумента(включительно) до второго(включb-1. Обратите внимание на запуск функции.
 //    Чтобы передать аргументы, нам пришлось обернуть функцию в анонимную.
 
 function t1(min, max) {
@@ -14,10 +14,9 @@ document.querySelector('.b-1').addEventListener('click', function () {
 })
 
 
-
 // Task 2.
 
-//Напишите функцию t2, которая принимает три аргумента
+// Напишите функцию t2, которая принимает три аргумента
 //  (число от, число до и блок, в который нужно вывести данные) и 
 //  выводит в указанный блок случайное целое число от первого аргумента(включительно)
 //  до второго(включительно). Функция запускается по кнопке .b-2. Обратите внимание на запуск функции. 
@@ -56,8 +55,7 @@ function t4(a, b, c) {
    const out4 = document.querySelector('.out-4');
    if(b === 0){
     out4.textContent = c  
-   }
-   out4.textContent = res
+   } else {out4.textContent = res}
 
 }
 
@@ -85,7 +83,8 @@ document.querySelector('.b-5').addEventListener('click', function () {
 
 
 // Task 6
-// Давайте напишем функцию t6, которая выводит переданный ей массив (как аргумент arr) в блок (переданный как аргумент block) через пробел. 
+// Давайте напишем функцию t6, которая выводит переданный ей массив (как аргумент arr) 
+// в блок (переданный как аргумент block) через пробел. 
 
 const out6 = document.querySelector('.out-6');
 
@@ -121,12 +120,15 @@ document.querySelector('.b-7').addEventListener('click', function () {
 
 
 // Task 8
-// Давайте напишем функцию t8, которая позволяет выводить текст переданный ей в качестве аргумента text в блок block. При этом переданный текст с помощью trim очищается от пробелов до и после и переводится в нижний регистр. 
+// Давайте напишем функцию t8, которая позволяет выводить текст переданный 
+// ей в качестве аргумента text в блок block. При этом переданный текст с помощью trim очищается от
+//  пробелов до и после и переводится в нижний регистр. 
 
 const out8 = document.querySelector('.out-8');
 
 function t8(block, text) {
-
+ let res = text.trim()
+ block.textContent = res.toLowerCase()
 }
 
 document.querySelector('.b-8').addEventListener('click', function () {
@@ -137,17 +139,24 @@ document.querySelector('.b-8').addEventListener('click', function () {
 
 
 // Task 9
-// Давайте напишем функцию t9, которая позволяет выводить текст переданный ей в качестве аргумента text в блок block. При этом переданный текст с помощью trim очищается от пробелов до и после и переводится в нижний регистр. Зададим значение по умолчанию для text - пустую строку, это позволит нам избежать ошибок, если данный аргумент упустили, и добавим в функцию проверку - если block не существует, то функция ничего не выводит.
+// Давайте напишем функцию t9, которая позволяет выводить текст переданный ей в качестве аргумента text в блок block.
+//  При этом переданный текст с помощью trim очищается от пробелов до и после и переводится в нижний регистр. 
+//  Зададим значение по умолчанию для text - пустую строку, это позволит нам избежать ошибок, 
+//  если данный аргумент упустили, и добавим в функцию проверку - если block не существует, то функция ничего не выводит.
 
 
 const out9 = document.querySelector('.out-9');
 
-function t9(text, block) {
+function t9(text = '', block) {
+    if(block){
+        let res = text.trim()
+        block.textContent = res.toLowerCase()
 
+    } else{ console.log('hello')}
 }
 
 document.querySelector('.b-9').addEventListener('click', function () {
-    t9(' HelLO wORLd       ', out9);
+    t9(' HelLO wORLd       ',out9 );
 })
 
 
@@ -159,11 +168,11 @@ document.querySelector('.b-9').addEventListener('click', function () {
 const out10 = document.querySelector('.out-10');
 
 function t10() {
-
+    out10.textContent = arguments.length
 }
 
 document.querySelector('.b-10').addEventListener('click', function () {
-    t10(33, 22, 44, 11, 55, 66, 11, 66);
+    t10(33, 22, 44, 11, 55, 66, 11, 66, 89);
 })
 
 
@@ -173,7 +182,12 @@ document.querySelector('.b-10').addEventListener('click', function () {
 const out11 = document.querySelector('.out-11');
 
 function t11() {
-
+    out11.textContent = arguments
+    let sum = 0
+    for(let i = 0; i < arguments.length; i++){
+        sum = sum + arguments[i]
+    }
+    out11.textContent = sum 
 }
 
 document.querySelector('.b-11').addEventListener('click', function () {
@@ -185,8 +199,12 @@ document.querySelector('.b-11').addEventListener('click', function () {
 
 const out12 = document.querySelector('.out-12');
 
-function t12() {
-
+function t12(...arr) {
+    let sum = 0
+    for(let i = 0; i < arr.length; i++){
+        sum = sum + arr[i]
+    }
+    out12.textContent = sum 
 }
 
 document.querySelector('.b-12').addEventListener('click', function () {
@@ -200,12 +218,12 @@ document.querySelector('.b-12').addEventListener('click', function () {
 const out13 = document.querySelector('.out-13');
 
 function t13(arr, funcArg) {
-
+    funcArg(arr)
 }
 
 // функции для вывода уже заготовлены
 function showArrSpace(arr) {
-    out13.innerHTML = arr.join(' ');
+    out13.textContent = arr.join(' ');
 }
 
 function showArrUnderscore(arr) {
@@ -219,25 +237,28 @@ document.querySelector('.b-13').addEventListener('click', function () {
 
 
 // Task 14
-// Напишите функцию, t14, которая выводит в блок block (переданный как аргумент) массив (переданный как аргумент arr) c помощью функции funcArg (переданной как аргумент).
+// Напишите функцию, t14, которая выводит в блок block (переданный как аргумент) массив 
+// (переданный как аргумент arr) c помощью функции funcArg (переданной как аргумент).
 
 const out14 = document.querySelector('.out-14');
 
 function t14(arr, funcArg, block) {
-
+    funcArg(arr, block)
 }
 
 // функции для вывода уже заготовлены
 function showArrSpace2(arr, block) {
+    block.textContent = arr.join(' ');
     // вывод в блок пишите как в предыдущем примере
 }
 
 function showArrUnderscore2(arr, block) {
+    block.innerHTML = arr.join('_');
     // вывод в блок пишите как в предыдущем примере
 }
 
 document.querySelector('.b-14').addEventListener('click', function () {
-    t14([3, 4, 5], showArrSpace, out14);
+    t14([3, 4, 5], showArrSpace2, out14);
     // попробуйте также вместо showArrSpace2 поставить showArrUnderscore2
 })
 
@@ -248,7 +269,9 @@ document.querySelector('.b-14').addEventListener('click', function () {
 const out15 = document.querySelector('.out-15');
 
 function t15(num, even, odd) {
-
+    if((num % 2) === 0){
+        even()
+    }else {add()}
 }
 
 function showOne() {
